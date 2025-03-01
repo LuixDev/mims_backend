@@ -43,17 +43,7 @@
 $ npm install
 ```
 
-## Compile and Run the Project
 
-```bash
-# Development
-$ npm run start
-
-# Watch mode
-$ npm run start:dev
-
-# Production mode
-$ npm run start:prod
 ```
 
 ---
