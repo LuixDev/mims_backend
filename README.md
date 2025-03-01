@@ -1,4 +1,4 @@
-# NestJS Project
+# NestJS Mims test
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank">
@@ -104,7 +104,7 @@ $ npm run start pedidos
 ```bash
 $ nats pub crear_pedido "{\"usuarioId\": \"123\", \"productos\": [{\"nombre\": \"Producto1\", \"cantidad\": 2}], \"estado\": \"pendiente\"}"
 
-$ ats request listar_pedidos "{ \"usuarioId\": \"123\" }"
+$ nats request listar_pedidos "{ \"usuarioId\": \"123\" }"
 
 $ nats request cambiar_estado_pedido "{ \"id\": \"2acf6c7b-9eeb-485a-84a3-b578c83d8a1e\", \"estado\": \"entregado\" }"'
 ```
@@ -113,7 +113,7 @@ Usuarios:
 ```bash
 $ nats request registro "{ \"email\": \"test@example.com\", \"password\": \"123456\", \"nombre\": \"Usuario Test\" }"
 
-$nats request login "{ \"email\": \"test@example.com\", \"password\": \"123456\" }"
+$ nats request login "{ \"email\": \"test@example.com\", \"password\": \"123456\" }"
 
 $ nats request perfil "{ \"token\": \"eyJhbGciOiJIUzI1...\" }"
 ```
