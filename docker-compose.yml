@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: pedidosdb
+    ports:
+      - "5432:5432"
+
+  nats:
+    image: nats
+    ports:
+      - "4222:4222"
+
+  usuarios:
+    build:
+      context: .
+      dockerfile: apps/usuarios/Dockerfile
+    depends_on:
+      - postgres
+      - nats
+
+  pedidos:
+    build:
+      context: .
+      dockerfile: apps/pedidos/Dockerfile
+    depends_on:
+      - postgres
+      - nats

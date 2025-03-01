@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/pedidos-api/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/pedidos-api/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/pedidos-api",
+  "projects": {
+    "pedidos": {
+      "type": "application",
+      "root": "apps/pedidos",
+      "entryFile": "main",
+      "sourceRoot": "apps/pedidos/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/pedidos/tsconfig.app.json"
+      }
+    },
+    "pedidos-api": {
+      "type": "application",
+      "root": "apps/pedidos-api",
+      "entryFile": "main",
+      "sourceRoot": "apps/pedidos-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/pedidos-api/tsconfig.app.json"
+      }
+    },
+    "usuarios": {
+      "type": "application",
+      "root": "apps/usuarios",
+      "entryFile": "main",
+      "sourceRoot": "apps/usuarios/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/usuarios/tsconfig.app.json"
+      }
+    }
+  }
+}
