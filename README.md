@@ -99,23 +99,23 @@ $ npm run start pedidos
 
 ## Probar el Código
 
-Para ejecutar comandos de NATS:
+(primero debe correr nats-server en cmd) en cmd Para ejecutar comandos de NATS:
 
 ```bash
-$ nats pub crear_pedido '{"usuarioId": "123", "productos": [{"nombre": "Producto1", "cantidad": 2}], "estado": "pendiente"}'
+$ nats pub crear_pedido "{\"usuarioId\": \"123\", \"productos\": [{\"nombre\": \"Producto1\", \"cantidad\": 2}], \"estado\": \"pendiente\"}"
 
-$ nats request listar_pedidos '{ "usuarioId": "123" }'
+$ ats request listar_pedidos "{ \"usuarioId\": \"123\" }"
 
-$ nats request cambiar_estado_pedido '{ "id": "2acf6c7b-9eeb-485a-84a3-b578c83d8a1e", "estado": "entregado" }'
+$ nats request cambiar_estado_pedido "{ \"id\": \"2acf6c7b-9eeb-485a-84a3-b578c83d8a1e\", \"estado\": \"entregado\" }"'
 ```
 
 Usuarios:
 ```bash
-$ nats request registro '{ "email": "test@example.com", "password": "123456", "nombre": "Usuario Test" }'
+$ nats request registro "{ \"email\": \"test@example.com\", \"password\": \"123456\", \"nombre\": \"Usuario Test\" }"
 
-$ nats request login '{ "email": "test@example.com", "password": "123456" }'
+$nats request login "{ \"email\": \"test@example.com\", \"password\": \"123456\" }"
 
-$ nats request perfil '{ "token": "eyJhbGciOiJIUzI1..." }'
+$ nats request perfil "{ \"token\": \"eyJhbGciOiJIUzI1...\" }"
 ```
 
 ---
@@ -187,9 +187,8 @@ Nest es un proyecto de código abierto con licencia MIT. Puedes apoyar su desarr
 
 ## Contacto
 
-- Autor - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Sitio web - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Autor - Luis Rodriguez
+
 
 ---
 
