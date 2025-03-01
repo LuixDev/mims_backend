@@ -1,4 +1,4 @@
-# NestJS Mims test
+# NestJS Project
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank">
@@ -54,9 +54,10 @@ $ npm run start:dev
 
 # Production mode
 $ npm run start:prod
-
+```
 
 ---
+
 
 ## NATS Installer
 
