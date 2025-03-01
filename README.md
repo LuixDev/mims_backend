@@ -8,12 +8,6 @@
   </a>
 </p>
 
- <a href="https://discord.gg/G7Qnnhy" target="_blank">
-    <img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/>
-  </a>
-   <a href="https://discord.gg/G7Qnnhy" target="_blank">
-    <img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/>
-  </a>
 
 
 <p align="center">
