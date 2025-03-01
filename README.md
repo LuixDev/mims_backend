@@ -142,6 +142,7 @@ $ npm run test usuarios.controller.spec.ts
 ## Configuración del Archivo `.env`
 
 Este proyecto requiere una URL de base de datos. Puedes usar [Supabase](https://supabase.com/) para obtener una conexión rápida.
+ejemplo .env file new create you must DATABASE_URL="postgresql://postgres:[passwordhere].ttynuvptgwxtsdkahcwo.supabase.co:5432/postgres" otro url
 
 ---
 
