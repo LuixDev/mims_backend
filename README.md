@@ -45,6 +45,59 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+
+nats intaller
+https://github.com/nats-io/natscli/releases
+buscar si amd64 tu procesador
+nats-0.1.6-windows-amd64.zip
+
+pónerlo y extrarer
+C:\nats y luego ese camino poner en variable de entorno
+ejecutar nats-server y luego sigue pago abajo cmd -nats ejecicion
+
+
+migracion prisma
+npx prisma db push
+
+run microservicio
+
+usuarios
+npm run start usuarios
+
+pedidos
+npm run start pedidos
+
+luego para probar el codigo
+
+cmd -nats ejecicion
+nats pub crear_pedido "{\"usuarioId\": \"123\", \"productos\": [{\"nombre\": \"Producto1\", \"cantidad\": 2}], \"estado\": \"pendiente\"}"
+nats request listar_pedidos "{ \"usuarioId\": \"123\" }"
+nats request cambiar_estado_pedido "{ \"id\": \"2acf6c7b-9eeb-485a-84a3-b578c83d8a1e\", \"estado\": \"entregado\" }"
+
+
+usuarios
+nats request registro "{ \"email\": \"test@example.com\", \"password\": \"123456\", \"nombre\": \"Usuario Test\" }"
+nats request login "{ \"email\": \"test@example.com\", \"password\": \"123456\" }"
+nats request perfil "{ \"token\": \"eyJhbGciOiJIUzI1...\" }"
+
+
+
+ejecutar prueba unitaria
+
+pedidos
+
+npm run test pedidos.controller.spec.ts
+
+usuarios
+
+npm run test usuarios.controller.spec.ts
+
+
+.env
+requiere url de la base de datos  puede usar supabase mas rapido poner url y contraseña 
+
+
+
 ## Run tests
 
 ```bash
