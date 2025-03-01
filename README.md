@@ -48,12 +48,12 @@ $ npm run start:prod
 
 nats intaller
 https://github.com/nats-io/natscli/releases
-buscar si amd64 tu procesador
+buscar si tu procesador esamd64 
 nats-0.1.6-windows-amd64.zip
 
 pónerlo y extrarer
-C:\nats y luego ese camino poner en variable de entorno
-ejecutar nats-server y luego sigue pago abajo cmd -nats ejecicion
+C:\nats y luego ese caminos poner en variable de entorno
+ejecutar nats-server y luego sigue el comando de abajo cmd -nats ejecicion
 
 
 migracion prisma
