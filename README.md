@@ -1,5 +1,13 @@
 # NestJS mims test
 
+
+
+<p align="center">
+  <a href="http://nestjs.com/" target="blank">
+    <img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" />
+  </a>
+</p>
+
  <a href="https://discord.gg/G7Qnnhy" target="_blank">
     <img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/>
   </a>
@@ -7,11 +15,6 @@
     <img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/>
   </a>
 
-<p align="center">
-  <a href="http://nestjs.com/" target="blank">
-    <img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" />
-  </a>
-</p>
 
 <p align="center">
   A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.
