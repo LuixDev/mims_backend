@@ -104,7 +104,7 @@ $ npm run start pedidos
 
 ## Probar el Código
 
-(primero debe correr nats-server en cmd) en cmd Para ejecutar comandos de NATS:
+(primero debe correr nats-server en cmd) en cmd Para ejecutar comandos de NATS: requiere usar nats sub crear_pedidod nats sub registro nats sub listar_pedidos y asi sucesivamente
 
 ```bash
 $ nats pub crear_pedido "{\"usuarioId\": \"123\", \"productos\": [{\"nombre\": \"Producto1\", \"cantidad\": 2}], \"estado\": \"pendiente\"}"
