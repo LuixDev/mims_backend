@@ -1,27 +1,24 @@
-import { Injectable } from '@nestjs/common';
-
-import { Client, ClientNats, Transport } from '@nestjs/microservices';
+import { Injectable, Inject } from '@nestjs/common';
+import { ClientProxy } from '@nestjs/microservices';
 import { PrismaService } from '../../../prisma/prisma.service';
-
 import { CambiarEstadoPedidoDto, CrearPedidoDto } from '../dto/crear-pedido.dto';
 
 @Injectable()
 export class PedidosService {
-  constructor( private readonly prisma: PrismaService,
-    private readonly client: ClientNats,) {}
-
-  @Client({ transport: Transport.NATS, options: { servers: ['nats://localhost:4222'] } })
-
+  constructor(
+    private readonly prisma: PrismaService,
+    @Inject('NATS_SERVICE') private readonly client: ClientProxy 
+  ) {}
 
   async crearPedido(dto: CrearPedidoDto) {
     try {
       console.log('📌 Guardando pedido en la BD:', dto);
-  
+
       // 🔍 Verificar si el usuario existe
       let usuario = await this.prisma.usuario.findUnique({
         where: { id: dto.usuarioId },
       });
-  
+
       // 🆕 Si el usuario no existe, crearlo
       if (!usuario) {
         usuario = await this.prisma.usuario.create({
@@ -34,7 +31,7 @@ export class PedidosService {
         });
         console.log('✅ Usuario creado:', usuario);
       }
-  
+
       // ✅ Crear el pedido
       const pedido = await this.prisma.pedido.create({
         data: {
@@ -43,7 +40,7 @@ export class PedidosService {
           productos: dto.productos,
         },
       });
-  
+
       console.log('✅ Pedido creado:', pedido);
       return pedido;
     } catch (error) {
@@ -51,14 +48,14 @@ export class PedidosService {
       throw error;
     }
   }
-  
+
   async listarPedidosPorUsuario(usuarioId: string) {
     console.log("Buscando pedidos para usuarioId:", usuarioId);
     
     const pedidos = await this.prisma.pedido.findMany({
       where: { usuarioId },
     });
-  
+
     // Convertir productos en JSON legible antes de mostrarlo en la consola
     const pedidosFormateados = pedidos.map(pedido => ({
       ...pedido,
@@ -66,15 +63,10 @@ export class PedidosService {
         ? JSON.parse(pedido.productos)
         : pedido.productos,
     }));
-  
-  console.log(JSON.stringify(pedidosFormateados, null, 2))
-    return   pedidosFormateados;
+
+    console.log(JSON.stringify(pedidosFormateados, null, 2))
+    return pedidosFormateados;
   }
-  
-  
-
-
- 
 
   async cambiarEstadoPedido(dto: CambiarEstadoPedidoDto) {
     const pedido = await this.prisma.pedido.update({
@@ -82,7 +74,7 @@ export class PedidosService {
       data: { estado: dto.estado },
     });
 
-    this.client.emit('pedido_actualizado', pedido); // Emitir evento
+    this.client.emit('pedido_actualizado', pedido); // Emitir evento a NATS
     return pedido;
   }
 }
