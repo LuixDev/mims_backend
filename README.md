@@ -111,7 +111,8 @@ $ nats pub crear_pedido "{\"usuarioId\": \"123\", \"productos\": [{\"nombre\": \
 
 $ nats request listar_pedidos "{ \"usuarioId\": \"123\" }"
 
-$ nats request cambiar_estado_pedido "{ \"id\": \"2acf6c7b-9eeb-485a-84a3-b578c83d8a1e\", \"estado\": \"entregado\" }"'
+$ nats request cambiar_estado_pedido "{'id': '1', 'estado': 'entregado'}"
+
 ```
 
 Usuarios:
